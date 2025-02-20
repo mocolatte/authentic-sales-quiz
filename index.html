@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Two-Step Sales Alignment Quiz</title>
   <style>
-    /* Use #4fa5c2 as background color for the whole page */
+    /* Use #265567 as the page background color */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: #4fa5c2;
+      background: #265567;
       color: #fff;
     }
     .container {
       max-width: 600px;
-      margin: 30px auto;
-      background: rgba(255, 255, 255, 0.2); /* slight see-through effect */
-      border-radius: 8px;
+      margin: 40px auto;
       padding: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
     }
     h1, h2 {
       text-align: center;
-      margin-top: 0;
+    }
+    /* Two "pages": show/hide with .active */
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
     }
     label {
       display: block;
-      margin: 8px 0 4px;
       font-weight: bold;
+      margin: 10px 0 4px;
     }
     input, button {
       width: 100%;
@@ -38,33 +44,26 @@
     }
     input[type="radio"] {
       width: auto;
-      margin: 0 6px 0 0;
+      margin-right: 6px;
     }
     button {
       background: #fff;
-      color: #4fa5c2;
-      font-weight: bold;
+      color: #265567;
       cursor: pointer;
+      font-weight: bold;
       transition: background 0.3s;
     }
     button:hover {
-      background: #ddd;
-    }
-    /* Page sections (step 1 and step 2) are shown/hidden dynamically */
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
+      background: #dddddd;
     }
     .question-block {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .option-group label {
       font-weight: normal;
-      cursor: pointer;
-      margin-bottom: 4px;
       display: block;
+      margin-bottom: 4px;
+      cursor: pointer;
     }
     #result {
       margin-top: 20px;
@@ -73,25 +72,24 @@
   </style>
 </head>
 <body>
-
 <div class="container">
   <h1>Authentic Sales Alignment Quiz</h1>
 
   <!-- PAGE 1: Collect Name & Email -->
   <div class="page active" id="page1">
-    <h2>Step 1: Enter Your Info</h2>
-    <label for="nameInput">Name:</label>
-    <input type="text" id="nameInput" placeholder="Your Name">
+    <h2>Step 1: Your Info</h2>
+    <label for="nameInput">Name</label>
+    <input type="text" id="nameInput" placeholder="Your Name" />
 
-    <label for="emailInput">Email:</label>
-    <input type="email" id="emailInput" placeholder="yourname@example.com">
+    <label for="emailInput">Email</label>
+    <input type="email" id="emailInput" placeholder="you@example.com" />
 
     <button id="page1Btn">Next</button>
   </div>
 
   <!-- PAGE 2: Quiz Questions -->
   <div class="page" id="page2">
-    <h2>Step 2: Complete the Quiz</h2>
+    <h2>Step 2: Take the Quiz</h2>
 
     <!-- Section 1 -->
     <div class="question-block">
@@ -173,14 +171,11 @@
     <button id="submitQuizBtn">Submit Quiz</button>
     <div id="result"></div>
   </div>
-
 </div>
 
 <script>
-  // ************************************
-  // Replace with YOUR Apps Script Web App URL
-  // ************************************
-  const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyacgBegJUzjdeNlcGID5nFQunLu2_SfXnAR_z7MxESlG_8Wc4kjf7_uYZTnpmyMz_m/exec; 
+  // Replace this with your Google Apps Script Web App URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/XXXXXXXXXXX/exec";
 
   const page1 = document.getElementById('page1');
   const page2 = document.getElementById('page2');
@@ -190,14 +185,11 @@
   const submitQuizBtn = document.getElementById('submitQuizBtn');
   const resultDiv = document.getElementById('result');
 
-  // Initially, page1 is visible (.active); page2 is hidden.
-  // After user enters Name & Email, we save to Google Sheet, then show page2.
-
-  // Step 1: User enters name & email, clicks "Next"
+  // Step 1: Collect name & email, POST to Google Sheet, then show quiz
   page1Btn.addEventListener('click', () => {
     const nameVal = nameInput.value.trim();
     const emailVal = emailInput.value.trim();
-
+    
     if (!nameVal) {
       alert("Please enter your Name.");
       return;
@@ -207,46 +199,45 @@
       return;
     }
 
-    // Build FormData to send to your Google Sheets script
+    // Build FormData for the POST request
     const formData = new FormData();
     formData.append('userName', nameVal);
     formData.append('userEmail', emailVal);
 
-    // Post the data to Google Apps Script
+    // POST to Google Apps Script
     fetch(SCRIPT_URL, { method: 'POST', body: formData })
       .then(response => response.json())
       .then(data => {
         console.log("Data saved:", data);
-        // Hide page1, show page2
+        // Hide page 1, show page 2
         page1.classList.remove('active');
         page1.style.display = 'none';
         page2.classList.add('active');
       })
       .catch(error => {
         console.error("Error saving to Google Sheet:", error);
-        alert("An error occurred. Please try again.");
+        alert("Error saving your info. Please try again.");
       });
   });
 
-  // Step 2: User completes quiz, clicks "Submit"
+  // Step 2: Submit quiz responses (optional storing)
   submitQuizBtn.addEventListener('click', () => {
-    // Validate all 7 questions answered
+    // Validate that each question is answered
     for (let i = 1; i <= 7; i++) {
       if (!getRadioValue('q' + i)) {
-        alert("Please answer question " + i + " before submitting.");
+        alert("Please answer question " + i + ".");
         return;
       }
     }
 
-    // For now, we just display a "Thank you"
-    // (If you also want to store these answers in the sheet, you'd do another fetch)
+    // Show final message
     resultDiv.innerHTML = `
       <p>Thank you for completing the quiz!</p>
       <p>We'll be in touch at <strong>${emailInput.value.trim()}</strong> soon!</p>
     `;
   });
 
-  // Helper: get selected radio value
+  // Helper function to get selected radio value
   function getRadioValue(name) {
     const radios = document.getElementsByName(name);
     for (let r of radios) {
@@ -254,8 +245,11 @@
     }
     return null;
   }
-</script>
 
+  // Initialize: show page 1, hide page 2
+  page1.classList.add('active');
+  page2.classList.remove('active');
+</script>
 </body>
 </html>
 
