@@ -2,16 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Two-Step Sales Alignment Quiz</title>
+  <title>Authentic Sales Alignment Quiz</title>
+
+  <!-- Google Fonts: "Breathing" (heading) & "PT Serif" (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Breathing&family=PT+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
   <style>
-    /* Use #265567 as the page background color */
+    /* ====== BODY & GLOBAL STYLES ====== */
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #265567;
+      background: #265567; /* Dark teal background */
+      font-family: 'PT Serif', serif; /* Default font for body */
       color: #fff;
     }
+
     .container {
       max-width: 600px;
       margin: 40px auto;
@@ -19,81 +24,75 @@
       background: rgba(255, 255, 255, 0.15);
       border-radius: 8px;
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
+      margin-bottom: 1em;
+      font-family: 'Breathing', serif; /* Heading font */
+      font-size: 2.2em;
     }
-    /* Two "pages": show/hide with .active */
-    .page {
-      display: none;
+
+    .question-block {
+      margin-bottom: 25px;
     }
-    .page.active {
-      display: block;
-    }
-    label {
-      display: block;
+
+    .question-block p {
+      margin: 0 0 10px;
       font-weight: bold;
-      margin: 10px 0 4px;
     }
-    input, button {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 12px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1em;
+
+    .option-group {
+      margin-left: 10px;
     }
-    input[type="radio"] {
+
+    .option-group label {
+      display: block;
+      margin-bottom: 6px;
+      cursor: pointer;
+      font-weight: normal;
+    }
+
+    /* Radio buttons smaller so text is more visible */
+    .option-group input[type="radio"] {
       width: auto;
       margin-right: 6px;
     }
+
+    /* Submit Button */
     button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
       background: #fff;
       color: #265567;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
+      font-size: 1em;
       font-weight: bold;
-      transition: background 0.3s;
+      font-family: inherit;
+      transition: background 0.3s ease;
     }
+
     button:hover {
-      background: #dddddd;
+      background: #ddd;
     }
-    .question-block {
-      margin-bottom: 20px;
-    }
-    .option-group label {
-      font-weight: normal;
-      display: block;
-      margin-bottom: 4px;
-      cursor: pointer;
-    }
+
     #result {
       margin-top: 20px;
       font-weight: bold;
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
-<div class="container">
-  <h1>Authentic Sales Alignment Quiz</h1>
+  <div class="container">
+    <h1>Authentic Sales Alignment Quiz</h1>
 
-  <!-- PAGE 1: Collect Name & Email -->
-  <div class="page active" id="page1">
-    <h2>Step 1: Your Info</h2>
-    <label for="nameInput">Name</label>
-    <input type="text" id="nameInput" placeholder="Your Name" />
-
-    <label for="emailInput">Email</label>
-    <input type="email" id="emailInput" placeholder="you@example.com" />
-
-    <button id="page1Btn">Next</button>
-  </div>
-
-  <!-- PAGE 2: Quiz Questions -->
-  <div class="page" id="page2">
-    <h2>Step 2: Take the Quiz</h2>
-
-    <!-- Section 1 -->
+    <!-- Section 1: Aligned Offer -->
     <div class="question-block">
-      <p><strong>1) How confident are you that your current offer aligns with your authentic passions and strengths?</strong></p>
+      <p>1) How confident are you that your current offer aligns with your authentic passions and strengths?</p>
       <div class="option-group">
         <label><input type="radio" name="q1" value="A"> A) Very confident—my offer feels true to who I am.</label>
         <label><input type="radio" name="q1" value="B"> B) Somewhat confident—I feel a connection, but I’m not sure it’s perfect.</label>
@@ -102,9 +101,9 @@
       </div>
     </div>
 
-    <!-- Section 2 -->
+    <!-- Section 2: Clear Avatar -->
     <div class="question-block">
-      <p><strong>2) How well do you understand the specific needs and pain points of your ideal client?</strong></p>
+      <p>2) How well do you understand the specific needs and pain points of your ideal client?</p>
       <div class="option-group">
         <label><input type="radio" name="q2" value="A"> A) I know my ideal client’s needs inside and out.</label>
         <label><input type="radio" name="q2" value="B"> B) I have a general idea, but I could dig deeper.</label>
@@ -113,9 +112,9 @@
       </div>
     </div>
 
-    <!-- Section 3 -->
+    <!-- Section 3: Identifying Needs and Fears -->
     <div class="question-block">
-      <p><strong>3) How comfortable are you with addressing the emotional needs and fears of your ideal clients in your sales process?</strong></p>
+      <p>3) How comfortable are you with addressing the emotional needs and fears of your ideal clients in your sales process?</p>
       <div class="option-group">
         <label><input type="radio" name="q3" value="A"> A) Very comfortable—my messaging speaks directly to their needs and fears.</label>
         <label><input type="radio" name="q3" value="B"> B) Somewhat comfortable—I’m still figuring out how to address them fully.</label>
@@ -124,9 +123,9 @@
       </div>
     </div>
 
-    <!-- Section 4 -->
+    <!-- Section 4: Perfect Lead Magnet -->
     <div class="question-block">
-      <p><strong>4) How well does your current lead magnet attract your ideal clients and engage them?</strong></p>
+      <p>4) How well does your current lead magnet attract your ideal clients and engage them?</p>
       <div class="option-group">
         <label><input type="radio" name="q4" value="A"> A) My lead magnet is highly effective—it attracts and engages my ideal clients.</label>
         <label><input type="radio" name="q4" value="B"> B) My lead magnet works okay, but I know it could do better.</label>
@@ -135,9 +134,9 @@
       </div>
     </div>
 
-    <!-- Section 5 -->
+    <!-- Section 5: Email Sequences & Scripts -->
     <div class="question-block">
-      <p><strong>5) How confident are you in using an email sequence or sales script to convert leads into clients?</strong></p>
+      <p>5) How confident are you in using an email sequence or sales script to convert leads into clients?</p>
       <div class="option-group">
         <label><input type="radio" name="q5" value="A"> A) Very confident—I have an email sequence and script that works.</label>
         <label><input type="radio" name="q5" value="B"> B) Somewhat confident—I have a script, but I’m not sure if it’s effective.</label>
@@ -146,9 +145,9 @@
       </div>
     </div>
 
-    <!-- Section 6 -->
+    <!-- Section 6: Sales Confidence -->
     <div class="question-block">
-      <p><strong>6) How would you rate your sales confidence when speaking with potential clients?</strong></p>
+      <p>6) How would you rate your sales confidence when speaking with potential clients?</p>
       <div class="option-group">
         <label><input type="radio" name="q6" value="A"> A) Very confident—I feel sure of my value and can easily communicate it.</label>
         <label><input type="radio" name="q6" value="B"> B) Somewhat confident—I have confidence in some areas but still struggle with others.</label>
@@ -157,9 +156,9 @@
       </div>
     </div>
 
-    <!-- Section 7 -->
+    <!-- Section 7: Actionable Insights -->
     <div class="question-block">
-      <p><strong>7) What’s your biggest challenge when it comes to aligning your sales process with your authentic self?</strong></p>
+      <p>7) What’s your biggest challenge when it comes to aligning your sales process with your authentic self?</p>
       <div class="option-group">
         <label><input type="radio" name="q7" value="A"> A) I struggle with clear messaging that connects with my audience.</label>
         <label><input type="radio" name="q7" value="B"> B) I have difficulty finding the right people to reach out to.</label>
@@ -169,87 +168,33 @@
     </div>
 
     <button id="submitQuizBtn">Submit Quiz</button>
+
     <div id="result"></div>
   </div>
-</div>
 
-<script>
-  // Replace this with your Google Apps Script Web App URL
-  const SCRIPT_URL =https://script.google.com/macros/s/AKfycby8eApyt6aCvpKqpcQZs02_ou_gTI-LkXGGZB1Vz_Twp0ZiCNGwP5xuCURh0-ZDzis/exec;
-
-  const page1 = document.getElementById('page1');
-  const page2 = document.getElementById('page2');
-  const nameInput = document.getElementById('nameInput');
-  const emailInput = document.getElementById('emailInput');
-  const page1Btn = document.getElementById('page1Btn');
-  const submitQuizBtn = document.getElementById('submitQuizBtn');
-  const resultDiv = document.getElementById('result');
-
-  // Step 1: Collect name & email, POST to Google Sheet, then show quiz
-  page1Btn.addEventListener('click', () => {
-    const nameVal = nameInput.value.trim();
-    const emailVal = emailInput.value.trim();
-    
-    if (!nameVal) {
-      alert("Please enter your Name.");
-      return;
-    }
-    if (!emailVal) {
-      alert("Please enter your Email.");
-      return;
-    }
-
-    // Build FormData for the POST request
-    const formData = new FormData();
-    formData.append('userName', nameVal);
-    formData.append('userEmail', emailVal);
-
-    // POST to Google Apps Script
-    fetch(SCRIPT_URL, { method: 'POST', body: formData })
-      .then(response => response.json())
-      .then(data => {
-        console.log("Data saved:", data);
-        // Hide page 1, show page 2
-        page1.classList.remove('active');
-        page1.style.display = 'none';
-        page2.classList.add('active');
-      })
-      .catch(error => {
-        console.error("Error saving to Google Sheet:", error);
-        alert("Error saving your info. Please try again.");
-      });
-  });
-
-  // Step 2: Submit quiz responses (optional storing)
-  submitQuizBtn.addEventListener('click', () => {
-    // Validate that each question is answered
-    for (let i = 1; i <= 7; i++) {
-      if (!getRadioValue('q' + i)) {
-        alert("Please answer question " + i + ".");
-        return;
+  <script>
+    document.getElementById('submitQuizBtn').addEventListener('click', () => {
+      // Validate that each question is answered
+      for (let i = 1; i <= 7; i++) {
+        if (!getRadioValue('q' + i)) {
+          alert('Please answer question ' + i + ' before submitting.');
+          return;
+        }
       }
+      // All questions answered, show a thank-you message
+      document.getElementById('result').innerHTML = `
+        <p>Thank you for completing the quiz!</p>
+        <p>We appreciate your time!</p>
+      `;
+    });
+
+    function getRadioValue(groupName) {
+      const radios = document.getElementsByName(groupName);
+      for (let r of radios) {
+        if (r.checked) return r.value;
+      }
+      return null;
     }
-
-    // Show final message
-    resultDiv.innerHTML = `
-      <p>Thank you for completing the quiz!</p>
-      <p>We'll be in touch at <strong>${emailInput.value.trim()}</strong> soon!</p>
-    `;
-  });
-
-  // Helper function to get selected radio value
-  function getRadioValue(name) {
-    const radios = document.getElementsByName(name);
-    for (let r of radios) {
-      if (r.checked) return r.value;
-    }
-    return null;
-  }
-
-  // Initialize: show page 1, hide page 2
-  page1.classList.add('active');
-  page2.classList.remove('active');
-</script>
+  </script>
 </body>
 </html>
-
