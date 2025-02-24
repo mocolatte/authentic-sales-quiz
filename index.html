@@ -86,7 +86,7 @@
   <div class="container">
     <h1>Authentic Sales Alignment Quiz</h1>
 
-    <!-- Section 1 -->
+    <!-- SECTION 1 -->
     <div class="question-block">
       <p>1) How confident are you that your current offer aligns with your authentic passions and strengths?</p>
       <div class="option-group">
@@ -97,7 +97,7 @@
       </div>
     </div>
 
-    <!-- Section 2 -->
+    <!-- SECTION 2 -->
     <div class="question-block">
       <p>2) How well do you understand the specific needs and pain points of your ideal client?</p>
       <div class="option-group">
@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <!-- Section 3 -->
+    <!-- SECTION 3 -->
     <div class="question-block">
       <p>3) How comfortable are you with addressing the emotional needs and fears of your ideal clients in your sales process?</p>
       <div class="option-group">
@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <!-- Section 4 -->
+    <!-- SECTION 4 -->
     <div class="question-block">
       <p>4) How well does your current lead magnet attract your ideal clients and engage them?</p>
       <div class="option-group">
@@ -130,7 +130,7 @@
       </div>
     </div>
 
-    <!-- Section 5 -->
+    <!-- SECTION 5 -->
     <div class="question-block">
       <p>5) How confident are you in using an email sequence or sales script to convert leads into clients?</p>
       <div class="option-group">
@@ -141,7 +141,7 @@
       </div>
     </div>
 
-    <!-- Section 6 -->
+    <!-- SECTION 6 -->
     <div class="question-block">
       <p>6) How would you rate your sales confidence when speaking with potential clients?</p>
       <div class="option-group">
@@ -152,14 +152,15 @@
       </div>
     </div>
 
-    <!-- Section 7 -->
+    <!-- SECTION 7 (UPDATED) -->
     <div class="question-block">
-      <p>7) What’s your biggest challenge when it comes to aligning your sales process with your authentic self?</p>
+      <p>7) What’s your biggest challenge (or situation) when it comes to aligning your sales process with your authentic self?</p>
       <div class="option-group">
-        <label><input type="radio" name="q7" value="A"> A) I struggle with clear messaging that connects with my audience.</label>
-        <label><input type="radio" name="q7" value="B"> B) I have difficulty finding the right people to reach out to.</label>
-        <label><input type="radio" name="q7" value="C"> C) I’m unsure how to make sales feel authentic and not “pushy.”</label>
-        <label><input type="radio" name="q7" value="D"> D) I don’t know where to start when it comes to creating my aligned offer.</label>
+        <label><input type="radio" name="q7" value="A"> A) I am very confident and happy with the results of my offerings and sales process.</label>
+        <label><input type="radio" name="q7" value="B"> B) I struggle with clear messaging that connects with my audience.</label>
+        <label><input type="radio" name="q7" value="C"> C) I have difficulty finding the right people to reach out to.</label>
+        <label><input type="radio" name="q7" value="D"> D) I’m unsure how to make sales feel authentic and not “pushy.”</label>
+        <label><input type="radio" name="q7" value="E"> E) I don’t know where to start when it comes to creating my aligned offer.</label>
       </div>
     </div>
 
@@ -170,48 +171,47 @@
     const submitQuizBtn = document.getElementById('submitQuizBtn');
     const radioInputs = document.querySelectorAll('input[type="radio"]');
 
-    // Disable by default, only enable once all 7 are answered
+    // Start with Submit disabled
     submitQuizBtn.disabled = true;
 
     // Listen for changes on ANY radio input
     radioInputs.forEach(radio => {
       radio.addEventListener('change', () => {
-        // Check if all 7 have answers
         let allAnswered = true;
         for (let i = 1; i <= 7; i++) {
+          // Check if question i has a selected radio
           if (!getRadioValue('q' + i)) {
             allAnswered = false;
             break;
           }
         }
+        // Enable or disable the button
         submitQuizBtn.disabled = !allAnswered;
       });
     });
 
-    // On click, check if all are answered (fallback) then see if all A
+    // When user clicks "Submit"
     submitQuizBtn.addEventListener('click', () => {
-      // Fallback: confirm all 7 answered
+      // Double-check all answered
       for (let i = 1; i <= 7; i++) {
         if (!getRadioValue('q' + i)) {
-          // If somehow triggered with missing answers, just exit
           alert("Oops please answer all of the questions before submitting.");
           return;
         }
       }
 
-      // Gather answers
+      // Gather final answers
       const answers = [];
       for (let i = 1; i <= 7; i++) {
         answers.push(getRadioValue('q' + i));
       }
 
-      // Check if ALL are A
+      // Check if ALL answers are "A"
       const allA = answers.every(ans => ans === 'A');
-
       if (allA) {
-        window.location.href = "alla.html";
+        window.location.href = "allA.html";
       } else {
-        window.location.href = "notalla.html";
+        window.location.href = "notAllA.html";
       }
     });
 
