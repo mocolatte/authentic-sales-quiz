@@ -52,7 +52,6 @@
       font-weight: normal;
     }
 
-    /* Radio buttons smaller so text is more visible */
     .option-group input[type="radio"] {
       width: auto;
       margin-right: 6px;
@@ -73,15 +72,12 @@
       font-family: inherit;
       transition: background 0.3s ease;
     }
-
-    button:hover {
+    button:hover:not(:disabled) {
       background: #ddd;
     }
-
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   </style>
 </head>
@@ -90,7 +86,7 @@
   <div class="container">
     <h1>Authentic Sales Alignment Quiz</h1>
 
-    <!-- Section 1: Aligned Offer -->
+    <!-- Section 1 -->
     <div class="question-block">
       <p>1) How confident are you that your current offer aligns with your authentic passions and strengths?</p>
       <div class="option-group">
@@ -101,7 +97,7 @@
       </div>
     </div>
 
-    <!-- Section 2: Clear Avatar -->
+    <!-- Section 2 -->
     <div class="question-block">
       <p>2) How well do you understand the specific needs and pain points of your ideal client?</p>
       <div class="option-group">
@@ -112,7 +108,7 @@
       </div>
     </div>
 
-    <!-- Section 3: Identifying Needs and Fears -->
+    <!-- Section 3 -->
     <div class="question-block">
       <p>3) How comfortable are you with addressing the emotional needs and fears of your ideal clients in your sales process?</p>
       <div class="option-group">
@@ -123,7 +119,7 @@
       </div>
     </div>
 
-    <!-- Section 4: Perfect Lead Magnet -->
+    <!-- Section 4 -->
     <div class="question-block">
       <p>4) How well does your current lead magnet attract your ideal clients and engage them?</p>
       <div class="option-group">
@@ -134,7 +130,7 @@
       </div>
     </div>
 
-    <!-- Section 5: Email Sequences & Scripts -->
+    <!-- Section 5 -->
     <div class="question-block">
       <p>5) How confident are you in using an email sequence or sales script to convert leads into clients?</p>
       <div class="option-group">
@@ -145,7 +141,7 @@
       </div>
     </div>
 
-    <!-- Section 6: Sales Confidence -->
+    <!-- Section 6 -->
     <div class="question-block">
       <p>6) How would you rate your sales confidence when speaking with potential clients?</p>
       <div class="option-group">
@@ -156,7 +152,7 @@
       </div>
     </div>
 
-    <!-- Section 7: Actionable Insights -->
+    <!-- Section 7 -->
     <div class="question-block">
       <p>7) What’s your biggest challenge when it comes to aligning your sales process with your authentic self?</p>
       <div class="option-group">
@@ -167,25 +163,56 @@
       </div>
     </div>
 
-    <button id="submitQuizBtn">Submit Quiz</button>
-
-    <div id="result"></div>
+    <button id="submitQuizBtn" disabled>Submit Quiz</button>
   </div>
 
   <script>
-    document.getElementById('submitQuizBtn').addEventListener('click', () => {
-      // Validate that each question is answered
+    const submitQuizBtn = document.getElementById('submitQuizBtn');
+    const radioInputs = document.querySelectorAll('input[type="radio"]');
+
+    // Disable by default, only enable once all 7 are answered
+    submitQuizBtn.disabled = true;
+
+    // Listen for changes on ANY radio input
+    radioInputs.forEach(radio => {
+      radio.addEventListener('change', () => {
+        // Check if all 7 have answers
+        let allAnswered = true;
+        for (let i = 1; i <= 7; i++) {
+          if (!getRadioValue('q' + i)) {
+            allAnswered = false;
+            break;
+          }
+        }
+        submitQuizBtn.disabled = !allAnswered;
+      });
+    });
+
+    // On click, check if all are answered (fallback) then see if all A
+    submitQuizBtn.addEventListener('click', () => {
+      // Fallback: confirm all 7 answered
       for (let i = 1; i <= 7; i++) {
         if (!getRadioValue('q' + i)) {
-          alert('Please answer question ' + i + ' before submitting.');
+          // If somehow triggered with missing answers, just exit
+          alert("Oops please answer all of the questions before submitting.");
           return;
         }
       }
-      // All questions answered, show a thank-you message
-      document.getElementById('result').innerHTML = `
-        <p>Thank you for completing the quiz!</p>
-        <p>We appreciate your time!</p>
-      `;
+
+      // Gather answers
+      const answers = [];
+      for (let i = 1; i <= 7; i++) {
+        answers.push(getRadioValue('q' + i));
+      }
+
+      // Check if ALL are A
+      const allA = answers.every(ans => ans === 'A');
+
+      if (allA) {
+        window.location.href = "allA.html";
+      } else {
+        window.location.href = "notAllA.html";
+      }
     });
 
     function getRadioValue(groupName) {
