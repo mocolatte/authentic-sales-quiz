@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>What’s Your Aligned Sales Archetype? Sell Powerfully—Without the Sleaze</title>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quattrocento&family=Windsong&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Aligned Sales Archetype Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quattrocento&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #ffffff;
@@ -15,113 +15,57 @@
     .container {
       max-width: 700px;
       margin: auto;
-      padding: 30px;
       background-color: #fffff0;
+      padding: 40px;
       border: 2px solid #c4ad91;
-      border-radius: 12px;
+      border-radius: 16px;
     }
     h1 {
-      font-family: 'Windsong', cursive;
-      font-size: 42px;
+      font-family: 'Quattrocento', serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
       color: #3e4738;
-      margin-bottom: 10px;
     }
-    .cta-button {
-      background-color: #631d14;
-      color: #ffffff;
-      padding: 12px 24px;
-      font-size: 16px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      margin-top: 20px;
-      border: none;
-      cursor: pointer;
-    }
-    .cta-button:hover {
-      background-color: #4a1510;
-    }
-    .question {
-      margin-bottom: 25px;
+    p {
+      font-size: 18px;
+      color: #265567;
+      margin-bottom: 20px;
     }
     label {
       display: block;
-      margin: 5px 0;
-      font-size: 15px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #3e4738;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    input[type="submit"]:hover {
+      background-color: #2e3a2e;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Find Your Aligned Sales Archetype</h1>
-    <form id="quizForm">
-      <div class="question">
-        <p>1. When it comes to making an offer, you usually...</p>
-        <label><input type="radio" name="q1" value="A" required> Offer so much value you feel awkward charging</label>
-        <label><input type="radio" name="q1" value="B"> Share the idea… but rarely deliver it</label>
-        <label><input type="radio" name="q1" value="C"> Go all in, then crash afterward</label>
-        <label><input type="radio" name="q1" value="D"> Present it clearly and let people choose</label>
-      </div>
+    <h1>Take the Aligned Sales Archetype Quiz</h1>
+    <form action="results.html" method="get">
+      <p>1. When someone asks about your offer, how do you usually respond?</p>
+      <label><input type="radio" name="q1" value="A" required> I pour my heart out, then feel awkward about charging</label>
+      <label><input type="radio" name="q1" value="B"> I share a little but drift off into something else</label>
+      <label><input type="radio" name="q1" value="C"> I dive in, then feel drained and need to recover</label>
+      <label><input type="radio" name="q1" value="D"> I explain clearly and let them decide</label>
 
-      <div class="question">
-        <p>2. Your biggest challenge with sales is...</p>
-        <label><input type="radio" name="q2" value="A" required> Feeling guilty asking for money</label>
-        <label><input type="radio" name="q2" value="B"> Defining your offer</label>
-        <label><input type="radio" name="q2" value="C"> Doing too much and burning out</label>
-        <label><input type="radio" name="q2" value="D"> Staying consistent with systems</label>
-      </div>
+      <!-- Add additional questions here if needed -->
 
-      <div class="question">
-        <p>3. Your relationship with structure is...</p>
-        <label><input type="radio" name="q3" value="A" required> I focus on others and ignore mine</label>
-        <label><input type="radio" name="q3" value="B"> I prefer to just flow</label>
-        <label><input type="radio" name="q3" value="C"> I follow it, but I’m exhausted</label>
-        <label><input type="radio" name="q3" value="D"> I like simple, supportive structure</label>
-      </div>
-
-      <div class="question">
-        <p>4. You secretly believe that selling...</p>
-        <label><input type="radio" name="q4" value="A" required> Should be selfless or it’s greedy</label>
-        <label><input type="radio" name="q4" value="B"> Should be easy, but it slips away</label>
-        <label><input type="radio" name="q4" value="C"> Is constant effort</label>
-        <label><input type="radio" name="q4" value="D"> Can be sacred and sustainable</label>
-      </div>
-
-      <div class="question">
-        <p>5. You’re most ready to...</p>
-        <label><input type="radio" name="q5" value="A" required> Set boundaries and receive</label>
-        <label><input type="radio" name="q5" value="B"> Focus your energy and build</label>
-        <label><input type="radio" name="q5" value="C"> Simplify and find ease</label>
-        <label><input type="radio" name="q5" value="D"> Expand with clarity</label>
-      </div>
-
-      <button class="cta-button" type="submit">See My Archetype</button>
+      <input type="submit" value="See My Archetype">
     </form>
   </div>
-
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const scores = { A: 0, B: 0, C: 0, D: 0 };
-      const formData = new FormData(event.target);
-
-      for (let entry of formData.values()) {
-        scores[entry]++;
-      }
-
-      const max = Math.max(...Object.values(scores));
-      const result = Object.keys(scores).find(key => scores[key] === max);
-
-      const redirectMap = {
-        A: "overgiver.html",
-        B: "visionary-drifter.html",
-        C: "hustling-healer.html",
-        D: "aligned-closer.html"
-      };
-
-      window.location.href = redirectMap[result];
-    });
-  </script>
 </body>
 </html>
