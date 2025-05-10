@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aligned Sales Archetype Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quattrocento&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: 'PT Serif', serif;
+      color: #3e4738;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fffff0;
+      padding: 40px;
+      border: 2px solid #c4ad91;
+      border-radius: 16px;
+    }
+    h1 {
+      font-family: 'Quattrocento', serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #3e4738;
+    }
+    p {
+      font-size: 18px;
+      color: #265567;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #3e4738;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    input[type="submit"]:hover {
+      background-color: #2e3a2e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Take the Aligned Sales Archetype Quiz</h1>
+    <form action="results.html" method="get">
+
+      <p>1. When someone asks about your offer, how do you usually respond?</p>
+      <label><input type="radio" name="q1" value="A" required> I pour my heart out, then feel awkward about charging</label>
+      <label><input type="radio" name="q1" value="B"> I share a little but drift off into something else</label>
+      <label><input type="radio" name="q1" value="C"> I dive in, then feel drained and need to recover</label>
+      <label><input type="radio" name="q1" value="D"> I explain clearly and let them decide</label>
+
+      <p>2. How do you feel after a sales call or meeting?</p>
+      <label><input type="radio" name="q2" value="A" required> Drained and second-guessing myself</label>
+      <label><input type="radio" name="q2" value="B"> Confused about what just happened</label>
+      <label><input type="radio" name="q2" value="C"> Exhausted and emotionally spent</label>
+      <label><input type="radio" name="q2" value="D"> Clear and confident in my offer</label>
+
+      <p>3. What’s your biggest challenge in closing a sale?</p>
+      <label><input type="radio" name="q3" value="A" required> Feeling guilty for charging what I’m worth</label>
+      <label><input type="radio" name="q3" value="B"> Staying focused and consistent in my messaging</label>
+      <label><input type="radio" name="q3" value="C"> Feeling drained by clients who want too much</label>
+      <label><input type="radio" name="q3" value="D"> Feeling like I’m being pushy or sleazy</label>
+
+      <p>4. When a prospect says 'I need to think about it,' how do you respond?</p>
+      <label><input type="radio" name="q4" value="A" required> I feel rejected and question my offer</label>
+      <label><input type="radio" name="q4" value="B"> I get distracted and move on to the next thing</label>
+      <label><input type="radio" name="q4" value="C"> I feel resentful and emotionally exhausted</label>
+      <label><input type="radio" name="q4" value="D"> I confidently follow up with clarity and ease</label>
+
+      <input type="submit" value="See My Archetype">
+    </form>
+  </div>
+</body>
+</html>
 
