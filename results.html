@@ -1,61 +1,84 @@
+<!-- results.html for the Aligned Sales Flow Quiz -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Aligned Sales Archetype</title>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quattrocento&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Windsong&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #ffffff;
       font-family: 'PT Serif', serif;
+      background-color: #fffff0;
       color: #3e4738;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
     }
     .container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #fffff0;
-      padding: 40px;
-      border: 2px solid #c4ad91;
-      border-radius: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
-    h1 {
-      font-family: 'Quattrocento', serif;
-      font-size: 32px;
+    .header {
+      font-family: 'Windsong', cursive;
+      font-size: 2.5rem;
+      color: #631d14;
       text-align: center;
-      margin-bottom: 30px;
-      color: #3e4738;
-    }
-    p {
-      font-size: 18px;
-      color: #265567;
       margin-bottom: 20px;
+    }
+    .archetype-header {
+      font-family: 'Breathing', sans-serif;
+      font-size: 1.8rem;
+      color: #3e4738;
+      margin-bottom: 10px;
     }
     .cta-button {
       background-color: #3e4738;
-      color: white;
-      padding: 12px 24px;
+      color: #ffffff;
+      padding: 10px 20px;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
       cursor: pointer;
+      font-weight: bold;
       margin-top: 20px;
-      text-decoration: none;
-      display: inline-block;
     }
     .cta-button:hover {
-      background-color: #2e3a2e;
+      background-color: #4fa5c2;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Your Aligned Sales Archetype</h1>
-    <p>Thank you for taking the quiz! Based on your responses, you fall into one of our four archetypes: Overgiver, Visionary Drifter, Hustling Healer, or Aligned Closer.</p>
-    <p>Click the button below to book your Aligned Offer Intensive and receive tailored guidance for your archetype.</p>
-    <a href="https://www.alignedsalesflow.com/" class="cta-button">Book Aligned Offer Intensive</a>
+    <div class="header">Your Sales Archetype Revealed</div>
+
+    <!-- Overgiver Result -->
+    <div class="archetype-header">You’re the Overgiver — It’s Time to Give to Yourself and Your Business</div>
+    <p>You’re generous and heart-centered, but it’s costing you. You over-deliver and undercharge, leaving you feeling drained. Let’s realign your approach so you can still serve, but start receiving what you truly deserve.</p>
+    <button class="cta-button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Start Receiving</button>
+
+    <hr>
+
+    <!-- Visionary Drifter Result -->
+    <div class="archetype-header">You’re the Visionary Drifter — It’s Time to Anchor Your Gifts</div>
+    <p>You have transformative ideas but lack clarity and structure. It’s time to ground your vision, align your messaging, and call in the clients who are ready to say YES.</p>
+    <button class="cta-button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Get Focused</button>
+
+    <hr>
+
+    <!-- Hustling Healer Result -->
+    <div class="archetype-header">You’re the Hustling Healer — It’s Time to Shift From Hustle to Flow</div>
+    <p>You’re working hard to prove your worth, but it’s exhausting you. Let’s align your sales strategy so you can create more space, attract ideal clients, and still get paid well.</p>
+    <button class="cta-button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Start Flowing</button>
+
+    <hr>
+
+    <!-- Aligned Closer Result -->
+    <div class="archetype-header">You’re the Aligned Closer — Let’s Take You to the Next Level</div>
+    <p>You’re already aligned in many ways, but you’re ready to elevate. Let’s refine your strategy to command premium prices with confidence and ease.</p>
+    <button class="cta-button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Start Closing</button>
   </div>
 </body>
 </html>
-
