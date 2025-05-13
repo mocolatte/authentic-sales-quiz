@@ -1,4 +1,4 @@
-<!-- quiz.html for the Aligned Sales Flow Quiz -->
+<!-- quiz.html with JavaScript logic for archetype assignment -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
       max-width: 600px;
       margin: 0 auto;
       background-color: #ffffff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -47,63 +47,64 @@
 <body>
   <div class="container">
     <div class="header">Discover Your Sales Archetype</div>
-    <form id="quizForm" action="results.html" method="GET">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
-
-      <label for="email">Your Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
-
+    <form id="quizForm">
       <h3>1. When preparing for a sales conversation, you typically:</h3>
-      <input type="radio" name="q1" value="A"> Focus solely on what the client needs, even at the expense of your own boundaries.<br>
-      <input type="radio" name="q1" value="B"> Have a great idea but struggle to clearly articulate it.<br>
-      <input type="radio" name="q1" value="C"> Get caught up in over-explaining, feeling like you need to prove your value.<br>
-      <input type="radio" name="q1" value="D"> Confidently position your offer as a transformative solution.<br><br>
+      <input type="radio" name="q1" value="A"> Overgiver<br>
+      <input type="radio" name="q1" value="B"> Visionary<br>
+      <input type="radio" name="q1" value="C"> Hustler<br>
+      <input type="radio" name="q1" value="D"> Closer<br><br>
 
       <h3>2. How do you feel when discussing pricing?</h3>
-      <input type="radio" name="q2" value="A"> Anxious and worried they’ll think it’s too expensive.<br>
-      <input type="radio" name="q2" value="B"> Unsure and avoid giving a firm number.<br>
-      <input type="radio" name="q2" value="C"> Nervous, so you often discount or add bonuses to ‘sweeten the deal.’<br>
-      <input type="radio" name="q2" value="D"> Clear and confident, knowing the value is worth every cent.<br><br>
+      <input type="radio" name="q2" value="A"> Overgiver<br>
+      <input type="radio" name="q2" value="B"> Visionary<br>
+      <input type="radio" name="q2" value="C"> Hustler<br>
+      <input type="radio" name="q2" value="D"> Closer<br><br>
 
-      <h3>3. When a prospect says 'I need to think about it,' your response is to:</h3>
-      <input type="radio" name="q3" value="A"> Apologize and ask what you could have done differently.<br>
-      <input type="radio" name="q3" value="B"> Avoid pushing, fearing they’ll ghost you.<br>
-      <input type="radio" name="q3" value="C"> Offer a discount to try to close the deal quickly.<br>
-      <input type="radio" name="q3" value="D"> Reframe the objection and clarify their hesitations.<br><br>
-
-      <h3>4. What’s your biggest challenge in sales right now?</h3>
-      <input type="radio" name="q4" value="A"> Overgiving and undervaluing your time.<br>
-      <input type="radio" name="q4" value="B"> Lacking clarity in your messaging.<br>
-      <input type="radio" name="q4" value="C"> Being too pushy or desperate to close.<br>
-      <input type="radio" name="q4" value="D"> Consistently attracting aligned clients.<br><br>
-
-      <h3>5. How do you feel after a sales call?</h3>
-      <input type="radio" name="q5" value="A"> Drained and second-guessing yourself.<br>
-      <input type="radio" name="q5" value="B"> Confused about what went wrong.<br>
-      <input type="radio" name="q5" value="C"> Frustrated that they didn’t say yes.<br>
-      <input type="radio" name="q5" value="D"> Energized and proud of the clarity you brought to the conversation.<br><br>
-
-      <h3>6. What’s your current approach to follow-up?</h3>
-      <input type="radio" name="q6" value="A"> You keep giving free advice to stay top of mind.<br>
-      <input type="radio" name="q6" value="B"> You’re hesitant to follow up, feeling like you’re annoying them.<br>
-      <input type="radio" name="q6" value="C"> You try to add bonuses to get them to say yes.<br>
-      <input type="radio" name="q6" value="D"> You follow up with a clear invitation and firm boundaries.<br><br>
-
-      <h3>7. What’s your biggest fear when it comes to selling?</h3>
-      <input type="radio" name="q7" value="A"> Being seen as too aggressive or salesy.<br>
-      <input type="radio" name="q7" value="B"> No one understanding the value of your offer.<br>
-      <input type="radio" name="q7" value="C"> Hearing 'no' and feeling like a failure.<br>
-      <input type="radio" name="q7" value="D"> Not being seen as a leader in your field.<br><br>
-
-      <h3>8. What would you most like to change about your sales process?</h3>
-      <input type="radio" name="q8" value="A"> Stop overgiving and undervaluing yourself.<br>
-      <input type="radio" name="q8" value="B"> Get clear on what your offer really is.<br>
-      <input type="radio" name="q8" value="C"> Feel more confident without being pushy.<br>
-      <input type="radio" name="q8" value="D"> Align with clients who are a clear yes and ready to buy.<br><br>
-
-      <button type="submit" class="button">Submit & Discover Your Archetype</button>
+      <button type="button" class="button" onclick="calculateArchetype()">Submit & See Your Archetype</button>
     </form>
   </div>
+
+  <script>
+    function calculateArchetype() {
+      const form = document.getElementById('quizForm');
+      const answers = new FormData(form);
+      const scores = { A: 0, B: 0, C: 0, D: 0 };
+
+      for (let entry of answers.entries()) {
+        scores[entry[1]] += 1;
+      }
+
+      let highestScore = 0;
+      let archetype = '';
+
+      for (let key in scores) {
+        if (scores[key] > highestScore) {
+          highestScore = scores[key];
+          archetype = key;
+        }
+      }
+
+      let redirectUrl = '';
+
+      switch (archetype) {
+        case 'A':
+          redirectUrl = 'results-overgiver.html';
+          break;
+        case 'B':
+          redirectUrl = 'results-visionary.html';
+          break;
+        case 'C':
+          redirectUrl = 'results-hustler.html';
+          break;
+        case 'D':
+          redirectUrl = 'results-closer.html';
+          break;
+        default:
+          redirectUrl = 'results-overgiver.html';
+      }
+
+      window.location.href = redirectUrl;
+    }
+  </script>
 </body>
 </html>
