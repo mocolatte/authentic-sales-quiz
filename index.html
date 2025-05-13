@@ -1,4 +1,4 @@
-<!-- quiz.html for the Aligned Sales Flow Quiz -->
+<!-- index.html for the Aligned Sales Flow Quiz -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
       max-width: 600px;
       margin: 0 auto;
       background-color: #ffffff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -26,6 +26,12 @@
       font-family: 'Windsong', cursive;
       font-size: 2.5rem;
       color: #631d14;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .subheader {
+      font-size: 1.2rem;
+      color: #3e4738;
       text-align: center;
       margin-bottom: 20px;
     }
@@ -38,6 +44,8 @@
       cursor: pointer;
       font-weight: bold;
       margin-top: 10px;
+      display: block;
+      width: 100%;
     }
     .button:hover {
       background-color: #4fa5c2;
@@ -46,21 +54,17 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Discover Your Sales Archetype</div>
-    <form id="quizForm" action="results.html" method="GET">
+    <div class="header">Discover Your Unique Sales Style</div>
+    <div class="subheader">Take this quick quiz to find out how you're currently showing up in sales and how to align for bigger wins.</div>
+
+    <form action="quiz.html" method="GET">
       <label for="name">Your Name:</label>
       <input type="text" id="name" name="name" required><br><br>
 
       <label for="email">Your Email:</label>
       <input type="email" id="email" name="email" required><br><br>
 
-      <h3>1. When preparing for a sales conversation, you typically:</h3>
-      <input type="radio" name="q1" value="A"> Focus solely on what the client needs, even at the expense of your own boundaries.<br>
-      <input type="radio" name="q1" value="B"> Have a great idea but struggle to clearly articulate it.<br>
-      <input type="radio" name="q1" value="C"> Get caught up in over-explaining, feeling like you need to prove your value.<br>
-      <input type="radio" name="q1" value="D"> Confidently position your offer as a transformative solution.<br><br>
-
-      <button type="submit" class="button">Submit & Discover Your Archetype</button>
+      <button type="submit" class="button">Start the Quiz</button>
     </form>
   </div>
 </body>
