@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Results - Aligned Sales Archetype</title>
+  <title>Aligned Sales Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quattrocento&display=swap" rel="stylesheet">
   <style>
     body {
@@ -27,33 +27,53 @@
       margin-bottom: 30px;
       color: #3e4738;
     }
-    p {
-      font-size: 18px;
-      color: #265567;
+    .question {
       margin-bottom: 20px;
     }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
+    .cta-button {
       background-color: #3e4738;
       color: white;
-      text-decoration: none;
+      padding: 12px 24px;
+      border: none;
       border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
     }
-    a:hover {
+    .cta-button:hover {
       background-color: #2e3a2e;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Your Aligned Sales Archetype</h1>
-    <p>Based on your responses, your sales archetype has been identified.</p>
-    <p>To get deeper insights and personalized guidance, click below:</p>
-    <a href="https://www.alignedsalesflow.com/" target="_blank">Book an Aligned Offer Intensive</a>
+    <h1>Aligned Sales Quiz</h1>
+    <form action="results.html" method="GET">
+      <div class="question">
+        <label for="question1">What best describes your current sales challenge?</label><br>
+        <input type="radio" name="question1" value="Overgiver"> Overgiver<br>
+        <input type="radio" name="question1" value="Visionary Drifter"> Visionary Drifter<br>
+        <input type="radio" name="question1" value="Hustling Healer"> Hustling Healer<br>
+        <input type="radio" name="question1" value="Aligned Closer"> Aligned Closer
+      </div>
+
+      <div class="question">
+        <label for="question2">How do you feel after a sales call?</label><br>
+        <input type="radio" name="question2" value="Exhausted"> Exhausted<br>
+        <input type="radio" name="question2" value="Empowered"> Empowered<br>
+        <input type="radio" name="question2" value="Confused"> Confused<br>
+        <input type="radio" name="question2" value="Focused"> Focused
+      </div>
+
+      <div class="question">
+        <label for="email">Enter your email to receive your result:</label><br>
+        <input type="email" name="email" required>
+      </div>
+
+      <input type="submit" class="cta-button" value="See Your Results">
+    </form>
   </div>
 </body>
 </html>
-
-   
