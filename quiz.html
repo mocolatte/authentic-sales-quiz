@@ -1,4 +1,4 @@
-<!-- quiz.html - Aligned Sales Flow Quiz with Full 8 Questions -->
+<!-- quiz.html - Aligned Sales Flow Quiz with Full 8 Questions - Corrected Structure -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +37,9 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
     }
     .button:hover {
       background-color: #4fa5c2;
@@ -49,53 +51,69 @@
     <div class="header">Take the Quiz - Discover Your Sales Archetype</div>
     <form id="quizForm">
 
-      <h3>1. How do you handle objections during a sales conversation?</h3>
-      <input type="radio" name="q1" value="A"> Apologize and over-explain.<br>
-      <input type="radio" name="q1" value="B"> Avoid the objection.<br>
-      <input type="radio" name="q1" value="C"> Offer a discount.<br>
-      <input type="radio" name="q1" value="D"> Reframe the value.<br><br>
+      <div class="question">
+        <h3>1. How do you handle objections during a sales conversation?</h3>
+        <input type="radio" name="q1" value="A"> Apologize and over-explain.<br>
+        <input type="radio" name="q1" value="B"> Avoid the objection.<br>
+        <input type="radio" name="q1" value="C"> Offer a discount.<br>
+        <input type="radio" name="q1" value="D"> Reframe the value.<br><br>
+      </div>
 
-      <h3>2. How do you feel when discussing pricing?</h3>
-      <input type="radio" name="q2" value="A"> Nervous, reduce the price.<br>
-      <input type="radio" name="q2" value="B"> Unsure, avoid the price.<br>
-      <input type="radio" name="q2" value="C"> Confident, but justify it.<br>
-      <input type="radio" name="q2" value="D"> Confident and firm.<br><br>
+      <div class="question">
+        <h3>2. How do you feel when discussing pricing?</h3>
+        <input type="radio" name="q2" value="A"> Nervous, reduce the price.<br>
+        <input type="radio" name="q2" value="B"> Unsure, avoid the price.<br>
+        <input type="radio" name="q2" value="C"> Confident, but justify it.<br>
+        <input type="radio" name="q2" value="D"> Confident and firm.<br><br>
+      </div>
 
-      <h3>3. How do you follow up after a call?</h3>
-      <input type="radio" name="q3" value="A"> Keep giving free advice.<br>
-      <input type="radio" name="q3" value="B"> Hesitate to follow up.<br>
-      <input type="radio" name="q3" value="C"> Add a bonus offer.<br>
-      <input type="radio" name="q3" value="D"> Clear invitation.<br><br>
+      <div class="question">
+        <h3>3. How do you follow up after a call?</h3>
+        <input type="radio" name="q3" value="A"> Keep giving free advice.<br>
+        <input type="radio" name="q3" value="B"> Hesitate to follow up.<br>
+        <input type="radio" name="q3" value="C"> Add a bonus offer.<br>
+        <input type="radio" name="q3" value="D"> Clear invitation.<br><br>
+      </div>
 
-      <h3>4. What’s your biggest fear in sales?</h3>
-      <input type="radio" name="q4" value="A"> Being pushy.<br>
-      <input type="radio" name="q4" value="B"> Not being understood.<br>
-      <input type="radio" name="q4" value="C"> Hearing 'no'.<br>
-      <input type="radio" name="q4" value="D"> Not seen as a leader.<br><br>
+      <div class="question">
+        <h3>4. What’s your biggest fear in sales?</h3>
+        <input type="radio" name="q4" value="A"> Being pushy.<br>
+        <input type="radio" name="q4" value="B"> Not being understood.<br>
+        <input type="radio" name="q4" value="C"> Hearing 'no'.<br>
+        <input type="radio" name="q4" value="D"> Not seen as a leader.<br><br>
+      </div>
 
-      <h3>5. How do you handle rejection?</h3>
-      <input type="radio" name="q5" value="A"> Blame yourself.<br>
-      <input type="radio" name="q5" value="B"> Retreat and avoid.<br>
-      <input type="radio" name="q5" value="C"> Get angry.<br>
-      <input type="radio" name="q5" value="D"> Learn and adjust.<br><br>
+      <div class="question">
+        <h3>5. How do you handle rejection?</h3>
+        <input type="radio" name="q5" value="A"> Blame yourself.<br>
+        <input type="radio" name="q5" value="B"> Retreat and avoid.<br>
+        <input type="radio" name="q5" value="C"> Get angry.<br>
+        <input type="radio" name="q5" value="D"> Learn and adjust.<br><br>
+      </div>
 
-      <h3>6. What do you want to improve in sales?</h3>
-      <input type="radio" name="q6" value="A"> Stop overgiving.<br>
-      <input type="radio" name="q6" value="B"> Clarify messaging.<br>
-      <input type="radio" name="q6" value="C"> Increase confidence.<br>
-      <input type="radio" name="q6" value="D"> Attract ideal clients.<br><br>
+      <div class="question">
+        <h3>6. What do you want to improve in sales?</h3>
+        <input type="radio" name="q6" value="A"> Stop overgiving.<br>
+        <input type="radio" name="q6" value="B"> Clarify messaging.<br>
+        <input type="radio" name="q6" value="C"> Increase confidence.<br>
+        <input type="radio" name="q6" value="D"> Attract ideal clients.<br><br>
+      </div>
 
-      <h3>7. What’s your approach to setting boundaries?</h3>
-      <input type="radio" name="q7" value="A"> Avoid setting boundaries.<br>
-      <input type="radio" name="q7" value="B"> Unclear boundaries.<br>
-      <input type="radio" name="q7" value="C"> Set them, then cave.<br>
-      <input type="radio" name="q7" value="D"> Clear and firm.<br><br>
+      <div class="question">
+        <h3>7. What’s your approach to setting boundaries?</h3>
+        <input type="radio" name="q7" value="A"> Avoid setting boundaries.<br>
+        <input type="radio" name="q7" value="B"> Unclear boundaries.<br>
+        <input type="radio" name="q7" value="C"> Set them, then cave.<br>
+        <input type="radio" name="q7" value="D"> Clear and firm.<br><br>
+      </div>
 
-      <h3>8. How do you feel after a sales call?</h3>
-      <input type="radio" name="q8" value="A"> Drained and second-guessing.<br>
-      <input type="radio" name="q8" value="B"> Confused.<br>
-      <input type="radio" name="q8" value="C"> Frustrated.<br>
-      <input type="radio" name="q8" value="D"> Empowered.<br><br>
+      <div class="question">
+        <h3>8. How do you feel after a sales call?</h3>
+        <input type="radio" name="q8" value="A"> Drained and second-guessing.<br>
+        <input type="radio" name="q8" value="B"> Confused.<br>
+        <input type="radio" name="q8" value="C"> Frustrated.<br>
+        <input type="radio" name="q8" value="D"> Empowered.<br><br>
+      </div>
 
       <button type="button" class="button" onclick="calculateArchetype()">Submit & Continue</button>
     </form>
