@@ -1,4 +1,4 @@
-<!-- quiz.html with JavaScript logic for archetype assignment -->
+<!-- quiz.html with only quiz questions and archetype calculation -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +46,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Discover Your Sales Archetype</div>
+    <div class="header">Take the Quiz - Discover Your Sales Archetype</div>
     <form id="quizForm">
       <h3>1. When preparing for a sales conversation, you typically:</h3>
       <input type="radio" name="q1" value="A"> Overgiver<br>
@@ -60,7 +60,7 @@
       <input type="radio" name="q2" value="C"> Hustler<br>
       <input type="radio" name="q2" value="D"> Closer<br><br>
 
-      <button type="button" class="button" onclick="calculateArchetype()">Submit & See Your Archetype</button>
+      <button type="button" class="button" onclick="calculateArchetype()">Submit & Continue</button>
     </form>
   </div>
 
@@ -84,26 +84,7 @@
         }
       }
 
-      let redirectUrl = '';
-
-      switch (archetype) {
-        case 'A':
-          redirectUrl = 'results-overgiver.html';
-          break;
-        case 'B':
-          redirectUrl = 'results-visionary.html';
-          break;
-        case 'C':
-          redirectUrl = 'results-hustler.html';
-          break;
-        case 'D':
-          redirectUrl = 'results-closer.html';
-          break;
-        default:
-          redirectUrl = 'results-overgiver.html';
-      }
-
-      window.location.href = redirectUrl;
+      window.location.href = `name-email.html?archetype=${archetype}`;
     }
   </script>
 </body>
