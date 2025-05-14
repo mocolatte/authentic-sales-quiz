@@ -1,4 +1,4 @@
-<!-- results-overgiver.html for the Aligned Sales Flow Quiz -->
+<!-- results-overgiver.html - Results Page for Overgiver Archetype -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +29,6 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .archetype-message {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
     .button {
       background-color: #3e4738;
       color: #ffffff;
@@ -42,6 +38,8 @@
       cursor: pointer;
       font-weight: bold;
       margin-top: 10px;
+      display: block;
+      width: 100%;
     }
     .button:hover {
       background-color: #4fa5c2;
@@ -50,18 +48,33 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Your Sales Archetype: Overgiver</div>
-    <div class="archetype-message">
-      You’re the Overgiver — It’s Time to Give to Yourself and Your Business.<br><br>
-      You’re a natural giver with a heart of gold. You love helping others and often go above and beyond, but this can lead to burnout and resentment. Here’s what to consider:
-      <ul>
-        <li><strong>Challenge:</strong> You tend to over-deliver without setting boundaries, leaving little time for yourself.</li>
-        <li><strong>Growth Opportunity:</strong> Learn to say no with grace and focus on offers that align with your value and worth.</li>
-        <li><strong>Next Step:</strong> Implement a sales structure that allows you to serve without self-sacrifice. </li>
-      </ul>
-      Imagine attracting clients who appreciate your time and respect your boundaries. Let’s realign your sales process so you can serve without self-sacrifice and start receiving what you truly deserve.
-    </div>
-    <button class="button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Start Receiving</button>
+    <div class="header">Your Sales Archetype: The Overgiver</div>
+
+    <p>As an Overgiver, you have a heart of gold and a desire to help others. However, you often give so much that you forget to receive. This can leave you feeling drained and undervalued. It's time to align your sales approach to honor both your generosity and your worth.</p>
+
+    <p><strong>Next Steps:</strong> Discover how to balance giving and receiving, attract aligned clients, and start charging what you're worth.</p>
+
+    <form id="hiddenForm" action="YOUR_SYSTEME_IO_FORM_URL" method="POST" style="display: none;">
+      <input type="hidden" name="name" id="nameField" value="">
+      <input type="hidden" name="email" id="emailField" value="">
+      <input type="hidden" name="archetype" value="Overgiver">
+    </form>
+
+    <button class="button" onclick="window.location.href='https://alignedsalesflow.com/intensive'">Book Your Intensive</button>
   </div>
+
+  <script>
+    // Extract URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const email = params.get("email");
+
+    // Populate hidden form fields
+    document.getElementById("nameField").value = name;
+    document.getElementById("emailField").value = email;
+
+    // Auto-submit the form
+    document.getElementById("hiddenForm").submit();
+  </script>
 </body>
 </html>
