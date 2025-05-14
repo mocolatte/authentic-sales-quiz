@@ -1,9 +1,9 @@
-<!-- results-hustler.html for the Aligned Sales Flow Quiz -->
+<!-- results-hustler.html - Results Page for Hustling Healer Archetype -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Windsong&display=swap" rel="stylesheet">
   <style>
@@ -29,10 +29,6 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .archetype-message {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
     .button {
       background-color: #3e4738;
       color: #ffffff;
@@ -42,6 +38,8 @@
       cursor: pointer;
       font-weight: bold;
       margin-top: 10px;
+      display: block;
+      width: 100%;
     }
     .button:hover {
       background-color: #4fa5c2;
@@ -50,11 +48,33 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Your Sales Archetype: Hustling Healer</div>
-    <div class="archetype-message">
-      You’re the Hustling Healer — It’s Time to Shift From Hustle to Flow.<br><br>
-      You’re driven, compassionate, and committed to making an impact, but your hustle mentality is wearing you down. Here’s what to consider:
-      <ul>
-        <li><strong>Challenge:</strong> You’re overworking to prove your worth, leading to burnout and resentment.</li>
-        <li><strong>Growth Opportunity:</strong> Shift from hustle to flow by trusting in the value of your offer without overextending.</li>
-        <li><strong>Next Step:</strong> Develop a sust
+    <div class="header">Your Sales Archetype: The Hustling Healer</div>
+
+    <p>As a Hustling Healer, you’re driven, passionate, and always pushing to make things happen. But the hustle can be exhausting. It’s time to shift from overworking to working with intention. Align your strategy to attract clients who value your work and are ready to invest.</p>
+
+    <p><strong>Next Steps:</strong> Balance your hustle with aligned action, elevate your pricing, and call in clients who are ready to say YES.</p>
+
+    <form id="hiddenForm" action="https://www.alignedsalesflow.com/quizcrew" method="POST" style="display: none;">
+      <input type="hidden" name="name" id="nameField" value="">
+      <input type="hidden" name="email" id="emailField" value="">
+      <input type="hidden" name="archetype" value="Hustling Healer">
+    </form>
+
+    <button class="button" onclick="window.location.href='https://alignedsalesflow.com/intensive'">Book Your Intensive</button>
+  </div>
+
+  <script>
+    // Extract URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const email = params.get("email");
+
+    // Populate hidden form fields
+    document.getElementById("nameField").value = name;
+    document.getElementById("emailField").value = email;
+
+    // Auto-submit the form
+    document.getElementById("hiddenForm").submit();
+  </script>
+</body>
+</html>
