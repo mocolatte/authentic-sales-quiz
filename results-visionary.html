@@ -1,9 +1,9 @@
-<!-- results-visionary.html for the Aligned Sales Flow Quiz -->
+<!-- results-visionary.html - Results Page for Visionary Drifter Archetype -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Windsong&display=swap" rel="stylesheet">
   <style>
@@ -29,10 +29,6 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .archetype-message {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
     .button {
       background-color: #3e4738;
       color: #ffffff;
@@ -42,6 +38,8 @@
       cursor: pointer;
       font-weight: bold;
       margin-top: 10px;
+      display: block;
+      width: 100%;
     }
     .button:hover {
       background-color: #4fa5c2;
@@ -50,18 +48,33 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Your Sales Archetype: Visionary Drifter</div>
-    <div class="archetype-message">
-      You’re the Visionary Drifter — It’s Time to Anchor Your Gifts.<br><br>
-      You’re a creative powerhouse with transformative ideas, but without structure and clarity, those ideas remain untapped potential. Here’s what to consider:
-      <ul>
-        <li><strong>Challenge:</strong> You struggle with articulating your offers clearly, causing confusion for potential clients.</li>
-        <li><strong>Growth Opportunity:</strong> Develop a compelling message that connects your vision to what your clients actually need.</li>
-        <li><strong>Next Step:</strong> Implement a clear, repeatable offer structure that aligns with your big-picture vision. </li>
-      </ul>
-      Imagine having a clear message that resonates deeply with your audience and converts them into paying clients. Let’s get you anchored, focused, and ready to elevate.
-    </div>
-    <button class="button" onclick="window.location.href='https://alignedsalesflow.com'">Get Aligned & Get Focused</button>
+    <div class="header">Your Sales Archetype: The Visionary Drifter</div>
+
+    <p>You are a Visionary Drifter — overflowing with brilliant ideas but struggling to anchor them into a clear, compelling offer. You’re inspired, creative, and full of potential, but without a clear path, your message can get lost. It's time to ground your vision, refine your messaging, and call in clients who resonate with your unique gifts.</p>
+
+    <p><strong>Next Steps:</strong> Align your vision with a concrete sales strategy, attract your ideal clients, and confidently articulate your offer.</p>
+
+    <form id="hiddenForm" action="https://www.alignedsalesflow.com/quizcrew" method="POST" style="display: none;">
+      <input type="hidden" name="name" id="nameField" value="">
+      <input type="hidden" name="email" id="emailField" value="">
+      <input type="hidden" name="archetype" value="Visionary Drifter">
+    </form>
+
+    <button class="button" onclick="window.location.href='https://alignedsalesflow.com/intensive'">Book Your Intensive</button>
   </div>
+
+  <script>
+    // Extract URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const email = params.get("email");
+
+    // Populate hidden form fields
+    document.getElementById("nameField").value = name;
+    document.getElementById("emailField").value = email;
+
+    // Auto-submit the form
+    document.getElementById("hiddenForm").submit();
+  </script>
 </body>
 </html>
