@@ -1,9 +1,9 @@
-<!-- results-hustler.html - Results Page for Hustling Healer Archetype -->
+<!-- hustlinghealer.html - Sales Archetype Results: Hustling Healer -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Windsong&display=swap" rel="stylesheet">
   <style>
@@ -29,6 +29,12 @@
       text-align: center;
       margin-bottom: 20px;
     }
+    .subheader {
+      font-size: 1.2rem;
+      color: #3e4738;
+      text-align: center;
+      margin-bottom: 20px;
+    }
     .button {
       background-color: #3e4738;
       color: #ffffff;
@@ -48,33 +54,13 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Your Sales Archetype: The Hustling Healer</div>
-
-    <p>As a Hustling Healer, you’re driven, passionate, and always pushing to make things happen. But the hustle can be exhausting. It’s time to shift from overworking to working with intention. Align your strategy to attract clients who value your work and are ready to invest.</p>
-
-    <p><strong>Next Steps:</strong> Balance your hustle with aligned action, elevate your pricing, and call in clients who are ready to say YES.</p>
-
-    <form id="hiddenForm" action="https://www.alignedsalesflow.com/quizcrew" method="POST" style="display: none;">
-      <input type="hidden" name="name" id="nameField" value="">
-      <input type="hidden" name="email" id="emailField" value="">
-      <input type="hidden" name="archetype" value="Hustling Healer">
-    </form>
-
-    <button class="button" onclick="window.location.href='https://alignedsalesflow.com/intensive'">Book Your Intensive</button>
+    <div class="header">You Are The Hustling Healer</div>
+    <div class="subheader">
+      You’re a natural at connecting with people and providing support, but sometimes you overextend yourself to the point of burnout. Your heart is in the right place, but to thrive in sales, it’s time to channel that hustle into aligned action.
+    </div>
+    <p>What if you could serve and succeed without sacrificing yourself in the process? Imagine how impactful you could be if your energy was balanced, focused, and strategically directed.</p>
+    <p>Ready to align your hustle with a flow that feels good and gets results? Let’s dive in.</p>
+    <a href="https://www.alignedsalesflow.com" class="button">Book Your Aligned Offer Intensive</a>
   </div>
-
-  <script>
-    // Extract URL parameters
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const email = params.get("email");
-
-    // Populate hidden form fields
-    document.getElementById("nameField").value = name;
-    document.getElementById("emailField").value = email;
-
-    // Auto-submit the form
-    document.getElementById("hiddenForm").submit();
-  </script>
 </body>
 </html>
