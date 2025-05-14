@@ -1,4 +1,4 @@
-<!-- quiz.html - Aligned Sales Flow Quiz with Full 8 Questions - Debugging Enabled -->
+<!-- index.html - Welcome Page for Sales Archetype Quiz -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +29,12 @@
       text-align: center;
       margin-bottom: 20px;
     }
+    .subheader {
+      font-size: 1.2rem;
+      color: #3e4738;
+      text-align: center;
+      margin-bottom: 20px;
+    }
     .button {
       background-color: #3e4738;
       color: #ffffff;
@@ -37,7 +43,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 10px;
       display: block;
       width: 100%;
     }
@@ -48,82 +54,11 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Take the Quiz - Discover Your Sales Archetype</div>
-    <form id="quizForm" onsubmit="calculateArchetype(event)">
-
-      <div class="question">
-        <h3>1. How do you handle objections during a sales conversation?</h3>
-        <input type="radio" name="q1" value="A" required> Apologize and over-explain.<br>
-        <input type="radio" name="q1" value="B"> Avoid the objection.<br>
-        <input type="radio" name="q1" value="C"> Offer a discount.<br>
-        <input type="radio" name="q1" value="D"> Reframe the value.<br><br>
-      </div>
-
-      <div class="question">
-        <h3>2. How do you feel when discussing pricing?</h3>
-        <input type="radio" name="q2" value="A" required> Nervous, reduce the price.<br>
-        <input type="radio" name="q2" value="B"> Unsure, avoid the price.<br>
-        <input type="radio" name="q2" value="C"> Confident, but justify it.<br>
-        <input type="radio" name="q2" value="D"> Confident and firm.<br><br>
-      </div>
-
-      <div class="question">
-        <h3>3. How do you follow up after a call?</h3>
-        <input type="radio" name="q3" value="A" required> Keep giving free advice.<br>
-        <input type="radio" name="q3" value="B"> Hesitate to follow up.<br>
-        <input type="radio" name="q3" value="C"> Add a bonus offer.<br>
-        <input type="radio" name="q3" value="D"> Clear invitation.<br><br>
-      </div>
-
-      <div class="question">
-        <h3>4. What’s your biggest fear in sales?</h3>
-        <input type="radio" name="q4" value="A" required> Being pushy.<br>
-        <input type="radio" name="q4" value="B"> Not being understood.<br>
-        <input type="radio" name="q4" value="C"> Hearing 'no'.<br>
-        <input type="radio" name="q4" value="D"> Not seen as a leader.<br><br>
-      </div>
-
-      <div class="question">
-        <h3>5. How do you handle rejection?</h3>
-        <input type="radio" name="q5" value="A" required> Blame yourself.<br>
-        <input type="radio" name="q5" value="B"> Retreat and avoid.<br>
-        <input type="radio" name="q5" value="C"> Get angry.<br>
-        <input type="radio" name="q5" value="D"> Learn and adjust.<br><br>
-      </div>
-
-      <button type="submit" class="button">Submit & Continue</button>
-    </form>
+    <div class="header">Discover Your Unique Sales Style</div>
+    <div class="subheader">
+      Ready to uncover your unique sales archetype? Take this quick quiz to see how you’re showing up in sales and how to align for better results.
+    </div>
+    <button class="button" onclick="window.location.href='quiz.html'">Start the Quiz</button>
   </div>
-
-  <script>
-    function calculateArchetype(e) {
-      e.preventDefault();
-      console.log("Form submitted");
-      const form = document.getElementById('quizForm');
-      const answers = new FormData(form);
-      const scores = { A: 0, B: 0, C: 0, D: 0 };
-
-      for (let entry of answers.entries()) {
-        console.log("Entry: ", entry);
-        scores[entry[1]] += 1;
-      }
-
-      console.log("Scores: ", scores);
-
-      let highestScore = 0;
-      let archetype = '';
-
-      for (let key in scores) {
-        if (scores[key] > highestScore) {
-          highestScore = scores[key];
-          archetype = key;
-        }
-      }
-
-      console.log("Archetype: ", archetype);
-
-      window.location.href = `name-email.html?archetype=${archetype}`;
-    }
-  </script>
 </body>
 </html>
