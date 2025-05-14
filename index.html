@@ -56,9 +56,15 @@
   <div class="container">
     <div class="header">Discover Your Unique Sales Style</div>
     <div class="subheader">
-      Ready to uncover your unique sales archetype? Take this quick quiz to see how you’re showing up in sales and how to align for better results.
+      Ready to uncover your unique sales archetype? Enter your details below to get started.
     </div>
-    <button class="button" onclick="window.location.href='quiz.html'">Start the Quiz</button>
+    <form method="POST" action="quiz.html">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <button class="button" type="submit">Start the Quiz</button>
+    </form>
   </div>
 </body>
 </html>
