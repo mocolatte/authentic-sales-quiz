@@ -1,4 +1,4 @@
-<!-- quiz.html - Sales Archetype Quiz Page -->
+<!-- quiz.html - Sales Archetype Quiz Page with Systeme.io Integration -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +49,9 @@
 <body>
   <div class="container">
     <div class="header">Sales Archetype Quiz</div>
-    <form id="quizForm" method="POST" action="results.html">
+    <form id="quizForm" method="POST" action="https://your-temporary-test-url.com">
+      <input type="hidden" id="archetype" name="archetype" value="">
+
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" required><br><br>
 
@@ -107,5 +109,33 @@
       <button type="submit" class="button">Get Results</button>
     </form>
   </div>
+
+  <script>
+    const form = document.getElementById('quizForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const answers = [
+        document.querySelector('input[name="q1"]:checked')?.value,
+        document.querySelector('input[name="q2"]:checked')?.value,
+        document.querySelector('input[name="q3"]:checked')?.value,
+        document.querySelector('input[name="q4"]:checked')?.value,
+        document.querySelector('input[name="q5"]:checked')?.value,
+        document.querySelector('input[name="q6"]:checked')?.value,
+        document.querySelector('input[name="q7"]:checked')?.value,
+        document.querySelector('input[name="q8"]:checked')?.value
+      ];
+      const archetype = determineArchetype(answers);
+      document.getElementById('archetype').value = archetype;
+      console.log({ name: document.getElementById('name').value, email: document.getElementById('email').value, archetype: archetype });
+    });
+
+    function determineArchetype(answers) {
+      const sum = answers.reduce((acc, val) => acc + Number(val), 0);
+      if (sum <= 12) return 'Overgiver';
+      if (sum <= 16) return 'Visionary Drifter';
+      if (sum <= 20) return 'Hustling Healer';
+      return 'Aligned Closer';
+    }
+  </script>
 </body>
 </html>
